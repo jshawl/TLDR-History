@@ -1,0 +1,26 @@
+{
+  "name": "tldr-history",
+  "version": "1.0.0",
+  "description": "a satirical history app where users can add \"TL;DR\" summaries of historical events",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddayporter/TLDR-History.git"
+  },
+  "author": "Rachel Porter, Dumitru \"Dimitri\" Gorgan, Tory Burgett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ddayporter/TLDR-History/issues"
+  },
+  "homepage": "https://github.com/ddayporter/TLDR-History#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.2.9",
+    "mongoose-voting": "^0.2.0"
+  }
+}
