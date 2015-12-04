@@ -2,11 +2,12 @@ var express = require("express");
 var app = express();
 var path = require("path");
 var bodyParser = require("body-parser");
+var mongoose = require("mongoose");
 
 // loads dependency that allows put and delete where not supported in html
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
 // loads module containing all authors contrller actions. not defined yet...
-var eventPostsController = require("./controllers/eventPostsController")
+var eventPostsController = require("./controllers/eventPosts");
 
 // connect mongoose interfaces to eventPosts mongo db
 mongoose.connect('mongodb://localhost/tldr-history');
