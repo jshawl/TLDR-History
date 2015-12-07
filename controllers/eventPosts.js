@@ -15,8 +15,10 @@ router.get("/", function(req, res){
 });
 
 router.post("/", function(req, res){
+  console.log(req.body)
   new EventPost(req.body).save().then(function(eventPost){
     res.json(eventPost);
+    console.log(eventPost);
   });
 });
 
