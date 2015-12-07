@@ -3,7 +3,7 @@ var EventPost = function(info) {
   this.date = info.date;
   this.photoUrl = info.photoUrl;
   this.wikiPage = info.wikiPage;
-  this.id = info.id;
+  this.id = info._id;
 };
 
 

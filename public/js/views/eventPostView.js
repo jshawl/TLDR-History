@@ -17,7 +17,7 @@ EventPostView.prototype = {
     var editButton = self.$el.find(".editEventPost");
     var tldrsDiv   = self.$el.find("div.tldrs");
 
-    tldrsDiv.hide(); // hide div until it's populated with songs
+    tldrsDiv.hide(); // hide div until it's populated with tldrs
 
     showButton.on("click", function(){
       self.toggleTldrs(tldrsDiv);
@@ -46,7 +46,7 @@ EventPostView.prototype = {
     var self = this;
     // if not in DOM, populate
     if(tldrsDiv.children().length === 0){
-      this.artist.fetchTldrs().then(function(tldrs){
+      this.eventPost.fetchTldrs().then(function(tldrs){
         self.appendTldrs(tldrs, tldrsDiv);
       });
     }
