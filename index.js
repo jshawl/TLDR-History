@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost/tldr-history');
 
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.use("/eventPosts", require("./controllers/eventPosts"));
