@@ -1,5 +1,5 @@
 var EventPostView = function(eventpost){
-  this.eventpost = eventpost;
+  this.eventPost = eventpost;
 
   this.$el = $("<div class='eventPost'></div>");
   this.render();
@@ -62,7 +62,7 @@ EventPostView.prototype = {
   },
   updateEventPost: function() {
     var self = this;
-    var data = {  title:     $('input[name=title]').val(),
+    var data = {  title: $('input[name=title]').val(),
                   date: $('input[name=date]').val(),
                   photoUrl: $('input[name=photoUrl]').val(),
                   wikiPage: $('input[name=wikiPage]').val()
