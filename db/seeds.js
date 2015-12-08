@@ -17,6 +17,8 @@ var event1 = new EventPostModel({
     wikiPage: "https://en.wikipedia.org/wiki/Independence_Day_(United_States)"
   });
 
+event1.save();
+
 var event2 = new EventPostModel({
     "title": "Boston Tea Party",
     "date": "December 16, 1773",
@@ -37,6 +39,8 @@ var event3 = new EventPostModel( {
     "wikiPage": "https://en.wikipedia.org/wiki/Paul_Revere#.22Midnight_Ride.22"
   });
 
+event3.save();
+
 var event4 = new EventPostModel({
   title: "Pearl Harbor Day",
   date: "December 7, 1941",
@@ -44,25 +48,35 @@ var event4 = new EventPostModel({
   wikiPage: "https://en.wikipedia.org/wiki/Attack_on_Pearl_Harbor"
 })
 
+event4.save();
+
 var tldr1 = new TldrModel({
       "summary": "America's birthday. The Continental Congress got together and sent the King George III the signed Decloration of Independence.",
       "relevance": "America's birthday/excuse for bbq parties and fireworks"
-    })
+    });
+
+tldr1.save();
 
 var tldr2 = new TldrModel({
       "summary": "The founding fathers send a breakup letter to the British Empire via the Decloration of Independence.",
       "relevance": "FIREWORKS DAY in America, also America's anniversery."
-    })
+    });
+
+tldr2.save();
 
 var tldr3 = new TldrModel({
       "summary": "AKA Independence Day - Day when Continental Congress got together and signed the Declaration of Independence.",
       "relevance": "Day America split up from the British Empire."
-    })
+    });
+
+tldr3.save();
 
 var tldr4 = new TldrModel({
   summary: "Japan was trying to get resources from Southeast Asia and the US said hell no, if you go attack Southeast Asia well attack you! So they thought they could catch us with our pants down and decimate our fleet at Pearl Harbor and Then go get the resources they needed in Indonesia and other places.",
   relevance: "This event provoked the US to enter World War II AND long story short we dropped atom bombs on Japan http://bit.ly/1Tyl5vh  #tldrhistory"
 })
+
+tldr4.save();
 
 event1.tldrs.push(tldr1, tldr2, tldr3);
 event4.tldrs.push(tldr4);
