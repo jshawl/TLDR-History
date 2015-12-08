@@ -15,6 +15,7 @@ EventPostView.prototype = {
 
     var showButton = self.$el.find(".showTldrs");
     var editButton = self.$el.find(".editEventPost");
+    var deleteButton = self.$el.find(".deleteEventPost");
     var tldrsDiv   = self.$el.find("div.tldrs");
 
     tldrsDiv.hide(); // hide div until it's populated with tldrs
@@ -26,6 +27,13 @@ EventPostView.prototype = {
     editButton.on("click", function() {
       self.renderEditForm();
     });
+
+    deleteButton.on("click", function() {
+      self.eventPost.destroy().then(function() {
+        self.$el.fadeOut();
+      });
+    });
+
   },
   renderEditForm: function() {
     var self = this;
@@ -78,6 +86,7 @@ EventPostView.prototype = {
     html.append("<a href='" + eventPost.wikiPage + "' target='_blank'>Click Here to view the wikipage for this event</a> <br>");
     html.append("<button class='showTldrs btn btn-success'>Show Tldrs</button>");
     html.append("<button class='editEventPost btn btn-primary'>Edit Event</button>");
+    html.append("<button class='deleteEventPost btn btn-danger'>Delete Event</button>");
     html.append("<div class='tldrs'></div>");
     return(html);
   },
@@ -90,5 +99,5 @@ EventPostView.prototype = {
     html.append("<input name='wikiPage' value='" + eventPost.wikiPage + "'>");
     html.append("<button class='updateEventPost'>Update Event</button>");
     return(html);
-  }
+  },
 };

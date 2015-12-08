@@ -7,6 +7,7 @@ var EventPost = function(info) {
 };
 
 
+
 EventPost.all = [];
 EventPost.fetch = function() {
   var request = $.getJSON("http://localhost:3000/eventPosts")
@@ -40,8 +41,7 @@ EventPost.prototype = {
   },
   update: function(eventPostData) {
     var self = this;
-
-    var url = "http://localhost:3000/eventposts/" + this.id;
+    var url = "http://localhost:3000/eventposts/" + self.id;
     var request = $.ajax({
       url: url,
       method: "patch",
@@ -50,6 +50,15 @@ EventPost.prototype = {
     }).then(
       function(updatedEventPostInfo) {
         self.reload(updatedEventPostInfo);
+      });
+    return request;
+  },
+  destroy: function(){
+    var self = this;
+    var url = "http://localhost:3000/eventposts/" + self.id;
+    var request = $.ajax({
+      url: url,
+      method: "delete",
       });
     return request;
   },
