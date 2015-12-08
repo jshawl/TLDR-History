@@ -7,7 +7,7 @@ var EventPost = function(info) {
 };
 
 
-EventPost.all = []
+EventPost.all = [];
 EventPost.fetch = function() {
   var request = $.getJSON("http://localhost:3000/eventPosts")
     .then(function(response) {
