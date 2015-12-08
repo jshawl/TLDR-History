@@ -1,7 +1,7 @@
 var EventPostView = function(eventpost){
   this.eventPost = eventpost;
 
-  this.$el = $("<div class='eventPost'></div>");
+  this.$el = $("<div class='eventPost well'></div>");
   this.render();
 
   $(".eventPosts").append(this.$el);
@@ -73,10 +73,11 @@ EventPostView.prototype = {
     var html = $("<div>");
     html.append("<h3>" + eventPost.title + "</h3>");
     html.append("<h4>" + eventPost.date + "</h4>");
-    html.append("<img class='eventPost-photo' src='" + eventPost.photoUrl + "'>");
-    html.append("<a href='" + eventPost.wikiPage + "' target='_blank'>Click Here to view the wikipage for this event</a>");
-    html.append("<button class='showTldrs'>Show Tldrs</button>");
-    html.append("<button class='editEventPost'>Edit Event</button>");
+    html.append("<img class='eventPost-photo' src='" + eventPost.photoUrl + "'> <br>");
+    // htlm.append('<br>')
+    html.append("<a href='" + eventPost.wikiPage + "' target='_blank'>Click Here to view the wikipage for this event</a> <br>");
+    html.append("<button class='showTldrs btn btn-success'>Show Tldrs</button>");
+    html.append("<button class='editEventPost btn btn-primary'>Edit Event</button>");
     html.append("<div class='tldrs'></div>");
     return(html);
   },
