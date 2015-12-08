@@ -10,7 +10,7 @@ var methodOverride = require('method-override');
 var eventPostsController = require("./controllers/eventPosts");
 
 // connect mongoose interfaces to eventPosts mongo db
-mongoose.connect('mongodb://127.0.0.1/tldr-history');
+mongoose.connect('mongodb://localhost/tldr-history');
 
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(bodyParser.json());
