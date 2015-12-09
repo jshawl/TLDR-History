@@ -6,8 +6,70 @@
 body {
   text-align: center;
   background: url('https://images.unsplash.com/photo-1422390346245-d919e8f237b3?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450')no-repeat fixed center;
+  padding-top: 80px;
 }
 
+a, h3, h4, h5, h6, p li {
+  font-family: 'Cinzel', serif;
+}
+
+button {
+  font-family: 'Cinzel', serif;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.container {
+  max-width: 50%;
+}
 .jumbotron {
-  opacity: 0.9;
+  opacity: 0.8;
+  background-color: brown;
+}
+
+.btn-primary {
+  background-color: #804b00;
+}
+
+.well {
+  background-color: #ffcb80;
+}
+
+.eventPost-photo {
+  width: 400px;
+  height: 300px;
+  border-radius: 5px;
+  border: 3px solid brown;
+}
+
+.eventPost-photo:hover {
+  transition: 0.1s;
+  width: 450px;
+  height: 350px;
+}
+
+.nav {
+  color: white;
+  opacity: 0.95;
+}
+
+.createEventPost {
+  margin-bottom: 15px;
+
+}
+.createEventPost:hover {
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+h2 {
+  font-family: 'Pinyon Script', cursive;
+  letter-spacing: 5px;
+}
+
+#tldr {
+  font-family: 'Cinzel', serif;
+}
+
+.tldrDiv.well {
+  margin-top: 10px;
 }

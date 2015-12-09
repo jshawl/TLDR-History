@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>TLDR History</title>
+  <link href='https://fonts.googleapis.com/css?family=Pinyon+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -13,12 +15,14 @@
   <script src="js/script.js"></script>
 </head>
 <body>
-  <div class="container">
-    <div class="jumbotron">
-      <h1>TLDR History</h1>
-      <button class="createEventPost btn btn-success">Create New Event</button>
+  <div class="nav navbar-inverse navbar-fixed-top">
+    <h2><span id='tldr'>TLDR</span> History</h2>
+  </div>
+    <div class="container">
+      <div class="jumbotron">
+        <button class="createEventPost btn-lg btn-primary">Create New Event</button>
       <div class="eventPosts"></div>
-    </div>
+     </div>
   </div>
 </body>
 </html>
