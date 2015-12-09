@@ -7,16 +7,37 @@ var EventPostView = function(eventpost){
   $(".eventPosts").append(this.$el);
 };
 
+EventPostView.new = function(){
+  // upon clicking create new Event post button, the button dissapears
+  $(".formNewEventPost").show();
+  $(".createEventPost").hide();
 
-// EventPostView.create = {
-//   render: function(){
-//     var $createButton = $("<button class='deleteEventPost btn btn-success'>Create New Event</button>");
-//     var $h1 = $("h1");
-//     $h1.append($createButton);
-//   }
-//
-// };
+  var createButton = $(".createEventPostButton");
+  var cancelButton = $(".cancelCreateEventPost");
 
+  createButton.on("click", function(){
+    event.preventDefault();
+    // console.log("Create Button Clicked");
+    var data = {  title: $('input[name=title]').val(),
+                    date: $('input[name=date]').val(),
+                    photoUrl: $('input[name=photoUrl]').val(),
+                    wikiPage: $('input[name=wikiPage]').val()
+                  };
+
+    $(".formNewEventPost").hide();
+    $(".createEventPost").show();
+    EventPost.create(data);
+  });
+
+  cancelButton.on("click", function(){
+    event.preventDefault();
+    $(".formNewEventPost").hide();
+    $(".createEventPost").show();
+  });
+
+
+
+};
 
 EventPostView.prototype = {
   render: function(){
