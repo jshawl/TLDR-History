@@ -7,6 +7,17 @@ var EventPostView = function(eventpost){
   $(".eventPosts").append(this.$el);
 };
 
+
+// EventPostView.create = {
+//   render: function(){
+//     var $createButton = $("<button class='deleteEventPost btn btn-success'>Create New Event</button>");
+//     var $h1 = $("h1");
+//     $h1.append($createButton);
+//   }
+//
+// };
+
+
 EventPostView.prototype = {
   render: function(){
     var self = this;

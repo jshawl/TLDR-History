@@ -6,9 +6,10 @@ var EventPost = function(info) {
   this.id = info._id;
 };
 
-
-
 EventPost.all = [];
+
+// EventPost.create = function
+
 EventPost.fetch = function() {
   var request = $.getJSON("http://localhost:3000/eventPosts")
     .then(function(response) {
@@ -21,7 +22,6 @@ EventPost.fetch = function() {
     });
   return request;
 };
-
 
 EventPost.prototype = {
   fetchTldrs: function() {
