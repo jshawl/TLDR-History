@@ -8,7 +8,23 @@ var EventPost = function(info) {
 
 EventPost.all = [];
 
-// EventPost.create = function
+EventPost.create = function(info){
+  var self = this;
+  var url = "/eventposts";
+  // var url = "https://tldr-history.herokuapp.com/eventposts/" || "http://localhost:3000/eventposts/";
+
+  var request = $.ajax({
+    url: url,
+    method: "post",
+    data: JSON.stringify(info),
+    contentType: 'application/json'
+  }).then(
+    function(newEventPostInfo) {
+      self.reload(newEventPostInfo);
+    });
+  return request;
+};
+
 
 EventPost.fetch = function() {
   var request = $.getJSON("http://localhost:3000/eventPosts")
