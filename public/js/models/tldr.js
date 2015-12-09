@@ -3,4 +3,4 @@ var Tldr = function (info) {
   this.relevance = info.relevance;
   this.evenPostId = info.eventPostId;
   this.id = info._id;
-}
+};
