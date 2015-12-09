@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-var conn = mongoose.connect('mongodb://heroku_8rq7jhsd:vqflfb439a98qsrv6oms0knov6@ds027825.mongolab.com:27825/heroku_8rq7jhsd');
+var conn = mongoose.connect('mongodb://localhost/tldr-history');
+// var conn = mongoose.connect('mongodb://heroku_8rq7jhsd:vqflfb439a98qsrv6oms0knov6@ds027825.mongolab.com:27825/heroku_8rq7jhsd');
 var EventPostModel = require("../models/eventPost");
 var TldrModel = require("../models/tldr");
 
