@@ -16,6 +16,7 @@ EventPostView.new = function(){
   var cancelButton = $(".cancelCreateEventPost");
 
   createButton.on("click", function(){
+    event.preventDefault();
     // console.log("Create Button Clicked");
     var data = {  title: $('input[name=title]').val(),
                     date: $('input[name=date]').val(),
