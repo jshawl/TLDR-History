@@ -24,7 +24,14 @@ app.use("/tldrs", require("./controllers/tldrs"));
 app.use(methodOverride('_method'));
 
 
+//
+// app.listen(3000, function(){
+//  console.log("Listening on port 3000");
+// });
 
-app.listen(3000, function(){
- console.log("Listening on port 3000");
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+console.log("Listening on " + port);
 });
+
+mongodb://heroku_8rq7jhsd:vqflfb439a98qsrv6oms0knov6@ds027825.mongolab.com:27825/heroku_8rq7jhsd
