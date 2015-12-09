@@ -6,8 +6,10 @@ var EventPost = function(info) {
   this.id = info._id;
 };
 
-
 EventPost.all = [];
+
+// EventPost.create = function
+
 EventPost.fetch = function() {
   var request = $.getJSON("http://localhost:3000/eventPosts")
   // var request = $.getJSON("https://tldr-history.herokuapp.com/eventPosts")
@@ -22,7 +24,6 @@ EventPost.fetch = function() {
     });
   return request;
 };
-
 
 EventPost.prototype = {
   fetchTldrs: function() {
@@ -43,7 +44,6 @@ EventPost.prototype = {
   },
   update: function(eventPostData) {
     var self = this;
-
     var url = "http://localhost:3000/eventposts/" + this.id;
     // var url = "https://tldr-history.herokuapp.com/eventposts/" + this.id;
     var request = $.ajax({
@@ -54,6 +54,15 @@ EventPost.prototype = {
     }).then(
       function(updatedEventPostInfo) {
         self.reload(updatedEventPostInfo);
+      });
+    return request;
+  },
+  destroy: function(){
+    var self = this;
+    var url = "http://localhost:3000/eventposts/" + self.id;
+    var request = $.ajax({
+      url: url,
+      method: "delete",
       });
     return request;
   },
