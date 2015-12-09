@@ -10,6 +10,8 @@ var EventPost = function(info) {
 EventPost.all = [];
 EventPost.fetch = function() {
   var request = $.getJSON("http://localhost:3000/eventPosts")
+  // var request = $.getJSON("https://tldr-history.herokuapp.com/eventPosts")
+
     .then(function(response) {
       for (var i = 0; i < response.length; i++) {
         EventPost.all.push(new EventPost(response[i]));
@@ -25,6 +27,7 @@ EventPost.fetch = function() {
 EventPost.prototype = {
   fetchTldrs: function() {
     var url = "http://localhost:3000/eventposts/" + this.id + "/tldrs";
+    // var url = "https://tldr-history.herokuapp.com/" + this.id + "/tldrs";
     var request = $.getJSON(url)
       .then(function(response) {
         var tldrs = [];
@@ -42,6 +45,7 @@ EventPost.prototype = {
     var self = this;
 
     var url = "http://localhost:3000/eventposts/" + this.id;
+    // var url = "https://tldr-history.herokuapp.com/eventposts/" + this.id;
     var request = $.ajax({
       url: url,
       method: "patch",
