@@ -4,39 +4,35 @@ var EventPostView = function(eventpost){
   this.$el = $("<div class='eventPost well'></div>");
   this.render();
 
-  $(".eventPosts").append(this.$el);
+  $(".eventPosts").prepend(this.$el);
 };
 
 EventPostView.new = function(){
   // upon clicking create new Event post button, the button dissapears
   $(".formNewEventPost").show();
   $(".createEventPost").hide();
-
   var createButton = $(".createEventPostButton");
   var cancelButton = $(".cancelCreateEventPost");
-
   createButton.on("click", function(){
     event.preventDefault();
     // console.log("Create Button Clicked");
-    var data = {  title: $('input[name=title]').val(),
-                    date: $('input[name=date]').val(),
-                    photoUrl: $('input[name=photoUrl]').val(),
-                    wikiPage: $('input[name=wikiPage]').val()
+    var data = {  title: $('.formNewEventPost input[name=title]').val(),
+                    date: $('.formNewEventPost input[name=date]').val(),
+                    photoUrl: $('.formNewEventPost input[name=photoUrl]').val(),
+                    wikiPage: $('.formNewEventPost input[name=wikiPage]').val()
                   };
 
     $(".formNewEventPost").hide();
     $(".createEventPost").show();
-    EventPost.create(data);
+    EventPost.create(data).then( function(response){
+      var view = new EventPostView(response);
+    });
   });
-
   cancelButton.on("click", function(){
     event.preventDefault();
     $(".formNewEventPost").hide();
     $(".createEventPost").show();
   });
-
-
-
 };
 
 EventPostView.prototype = {
@@ -102,10 +98,12 @@ EventPostView.prototype = {
   },
   updateEventPost: function() {
     var self = this;
-    var data = {  title: $('input[name=title]').val(),
-                  date: $('input[name=date]').val(),
-                  photoUrl: $('input[name=photoUrl]').val(),
-                  wikiPage: $('input[name=wikiPage]').val()
+    var id = self.eventPost.id;
+
+    var data = {  title: $('.editForm'+id+' input[name=title]').val(),
+                  date: $('.editForm'+id+' input[name=date]').val(),
+                  photoUrl: $('.editForm'+id+' input[name=photoUrl]').val(),
+                  wikiPage: $('.editForm'+id+' input[name=wikiPage]').val()
                 };
     self.eventPost.update(data).then(function() { self.render(); });
   },
@@ -123,7 +121,7 @@ EventPostView.prototype = {
     return(html);
   },
   eventPostEditTemplate: function(eventPost) {
-    var html = $("<div>");
+    var html = $("<div class='editForm"+eventPost.id+"'>");
     html.append("<input name='title' value='" + eventPost.title + "'>");
     html.append("<input name='date' value='" + eventPost.date + "'>");
     html.append("<img class='eventPost-photo-thumbnail' src='" + eventPost.photoUrl + "'>");
