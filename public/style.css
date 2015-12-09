@@ -9,8 +9,17 @@ body {
   padding-top: 80px;
 }
 
-a, h3, h4, h5, h6, p li {
+a, h3, h4, h5, h6, p, li {
   font-family: 'Cinzel', serif;
+}
+
+
+.container {
+  max-width: 50%;
+}
+.jumbotron {
+  opacity: 0.9;
+  background-color: brown;
 }
 
 button {
@@ -19,13 +28,6 @@ button {
   margin-right: 5px;
 }
 
-.container {
-  max-width: 50%;
-}
-.jumbotron {
-  opacity: 0.8;
-  background-color: brown;
-}
 
 .btn-primary {
   background-color: #804b00;
