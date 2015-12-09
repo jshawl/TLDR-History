@@ -4,19 +4,15 @@ var EventPostView = function(eventpost){
   this.$el = $("<div class='eventPost well'></div>");
   this.render();
 
-  $(".eventPosts").append(this.$el);
+  $(".eventPosts").prepend(this.$el);
 };
 
 EventPostView.new = function(){
   // upon clicking create new Event post button, the button dissapears
   $(".formNewEventPost").show();
   $(".createEventPost").hide();
-
   var createButton = $(".createEventPostButton");
   var cancelButton = $(".cancelCreateEventPost");
-
-
-
   createButton.on("click", function(){
     event.preventDefault();
     // console.log("Create Button Clicked");
@@ -28,17 +24,15 @@ EventPostView.new = function(){
 
     $(".formNewEventPost").hide();
     $(".createEventPost").show();
-    EventPost.create(data);
+    EventPost.create(data).then( function(response){
+      var view = new EventPostView(response);
+    });
   });
-
   cancelButton.on("click", function(){
     event.preventDefault();
     $(".formNewEventPost").hide();
     $(".createEventPost").show();
   });
-
-
-
 };
 
 EventPostView.prototype = {
