@@ -1,5 +1,5 @@
 require("../db/schema");
 var mongoose = require("mongoose");
-var EventPostModel = mongoose.model("EventPost");
+var EventPost = mongoose.model("EventPost");
 
-module.exports = EventPostModel;
+module.exports = EventPost;
