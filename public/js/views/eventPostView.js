@@ -7,41 +7,36 @@ var EventPostView = function(eventpost){
   $(".eventPosts").append(this.$el);
 };
 
-// EventPostView.new = function(){
-//   // upon clicking create new Event post button, the button dissapears
-//   $(".createEventPost").hide();
-//
-//   var html = $("<div>");
-//   html.append("<p>Event Title : <input name='title' value=''></p>");
-//   html.append("<p>Date: <input name='date' value=''></p>");
-//   html.append("<p>Photo Url: <input name='photoUrl' value=''></p>");
-//   html.append("<p>Wiki Page: <input name='wikiPage' value=''></p>");
-//   html.append("<button class='createEventPostButton btn btn-success'>New Event</button>");
-//   html.append("<button class='cancelCreateEventPost btn btn-danger'>Cancel</button>");
-//
-//   var createButton = $(".createEventPostButton");
-//
-//   createButton.on("click", function() {
-//     console.log("Button Clicked!!!");
-//     // var data = {  title: $('input[name=title]').val(),
-//     //               date: $('input[name=date]').val(),
-//     //               photoUrl: $('input[name=photoUrl]').val(),
-//     //               wikiPage: $('input[name=wikiPage]').val()
-//     //             };
-//     //
-//     // EventPost.create(data);
-//
-//   });
-//
-//   $(".cancelCreateEventPost").on("click", function(){
-//     console.log("Luke I am your father!");
-//   });
-//
-//
-//
-//   return(html);
-// };
+EventPostView.new = function(){
+  // upon clicking create new Event post button, the button dissapears
+  $(".formNewEventPost").show();
+  $(".createEventPost").hide();
 
+  var createButton = $(".createEventPostButton");
+  var cancelButton = $(".cancelCreateEventPost");
+
+  createButton.on("click", function(){
+    // console.log("Create Button Clicked");
+    var data = {  title: $('input[name=title]').val(),
+                    date: $('input[name=date]').val(),
+                    photoUrl: $('input[name=photoUrl]').val(),
+                    wikiPage: $('input[name=wikiPage]').val()
+                  };
+
+    $(".formNewEventPost").hide();
+    $(".createEventPost").show();
+    EventPost.create(data);
+  });
+
+  cancelButton.on("click", function(){
+    event.preventDefault();
+    $(".formNewEventPost").hide();
+    $(".createEventPost").show();
+  });
+
+
+
+};
 
 EventPostView.prototype = {
   render: function(){

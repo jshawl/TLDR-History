@@ -18,10 +18,7 @@ EventPost.create = function(info){
     method: "post",
     data: JSON.stringify(info),
     contentType: 'application/json'
-  }).then(
-    function(newEventPostInfo) {
-      self.reload(newEventPostInfo);
-    });
+  });
   return request;
 };
 
