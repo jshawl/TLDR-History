@@ -5,6 +5,20 @@ var Tldr = function (info) {
   this.id = info._id;
 };
 
+Tldr.create = function(){
+  var self = this;
+  var eventPostID = "your mom";
+  var url = "/eventposts/"+eventPostID+"/tldrs";
+  var request = $.ajax({
+    url: url,
+    method: "post",
+    data: JSON.stringify(info),
+    contentType: 'application/json'
+  });
+  return request;
+};
+
+
 Tldr.prototype = {
   destroy: function(){
     var self = this;

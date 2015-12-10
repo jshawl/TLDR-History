@@ -50,6 +50,8 @@ EventPostView.prototype = {
     var showButton = self.$el.find(".showTldrs");
     var editButton = self.$el.find(".editEventPost");
     var deleteButton = self.$el.find(".deleteEventPost");
+    var createTldrButton = self.$el.find(".createNewTldr"+self.eventPost.id);
+
     var tldrsDiv   = self.$el.find("div.tldrs");
 
     tldrsDiv.hide(); // hide div until it's populated with tldrs
@@ -67,6 +69,33 @@ EventPostView.prototype = {
         self.$el.fadeOut();
       });
     });
+
+    createTldrButton.on("click", function(){
+      $(".formNewTldr"+self.eventPost.id).show();
+      var cancelCreateTldr = self.$el.find(".cancelCreateTldr"+self.eventPost.id);
+      var createnewTldrButton = self.$el.find(".createnewTldrButton"+self.eventPost.id);
+
+
+      cancelCreateTldr.on("click", function(){
+        event.preventDefault();
+        $(".formNewTldr"+self.eventPost.id).hide();
+      });
+
+
+      createnewTldrButton.on("click", function(){
+        event.preventDefault();
+        $(".formNewTldr"+self.eventPost.id).hide();
+        
+        console.log("Create New Button Clicked! EventPost ID: "+self.eventPost.id);
+
+        createnewTldrButton.off();
+      });
+
+
+    });
+
+
+
 
   },
   renderEditForm: function() {
@@ -102,7 +131,7 @@ EventPostView.prototype = {
       var tldrView = new TldrView(tldr);
       tldrsDiv.append(tldrView.render());
       var deleteButton = $(".deleteTldr"+ tldr.id);
-      var tldrDiv = $(".tldrDiv" + tldr.id )
+      var tldrDiv = $(".tldrDiv" + tldr.id );
       deleteButton.on("click", function() {
         console.log("delete clicked");
         // console.log(tldr);
@@ -130,11 +159,12 @@ EventPostView.prototype = {
     html.append("<h3>" + eventPost.title + "</h3>");
     html.append("<h4>" + eventPost.date + "</h4>");
     html.append("<img class='eventPost-photo' src='" + eventPost.photoUrl + "'> <br>");
-    // htlm.append('<br>')
     html.append("<a href='" + eventPost.wikiPage + "' target='_blank'>Click Here to view the wikipage for this event</a> <br>");
     html.append("<button class='showTldrs btn btn-success'>Show Tldrs</button>");
+    html.append("<button class='createNewTldr"+ eventPost.id +" createNewTldr btn btn-info'>Add a New tldr</button>");
     html.append("<button class='editEventPost btn btn-primary'>Edit Event</button>");
     html.append("<button class='deleteEventPost btn btn-danger'>Delete Event</button>");
+    html.append("<div class='well formNewTldr"+eventPost.id+" formNewTldr' style='display: none;'><form role='form'><div class='form-group'> Summary : <input name='summary' value='' class='form-control'> Relevance : <input name='relevance' value='' class='form-control'><button class='createnewTldrButton createnewTldrButton"+eventPost.id+" btn btn-success'>New tldr</button><button class='cancelCreateTldr"+eventPost.id+" cancelCreateTldr btn btn-danger'>Cancel</button></div></form></div>");
     html.append("<div class='tldrs'></div>");
     return(html);
   },

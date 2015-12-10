@@ -34,6 +34,15 @@ router.get("/:id/tldrs", function(req, res){
   });
 });
 
+router.post("/:id/tldrs", function(req, res){
+  // console.log(req.body);
+  new EventPost(req.body).save().then(function(eventPost){
+    res.json(eventPost);
+    // console.log(eventPost);
+  });
+});
+
+
 router.patch("/:id", function(req, res){
   EventPost.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true}).then(function(eventPost){
     res.json(eventPost);
