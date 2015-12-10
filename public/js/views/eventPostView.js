@@ -84,10 +84,27 @@ EventPostView.prototype = {
 
       createnewTldrButton.on("click", function(){
         event.preventDefault();
-        $(".formNewTldr"+self.eventPost.id).hide();
         console.log("Create New Button Clicked! EventPost ID: "+self.eventPost.id);
 
         // creaet a new tldr, attatching it to the eventPost
+        var data = {  summary: $(".summaryInputTldr"+self.eventPost.id).val(),
+                        relevance: $(".relevanceInputTldr"+self.eventPost.id).val()
+                      };
+        var eventPostID = self.eventPost.id;
+
+
+
+        Tldr.create(data, eventPostID).then(function(response){
+          console.log(data);
+          var tldr = new Tldr(response);
+          console.log("creating a new Tldr");
+          var view = new TldrView(tldr);
+          console.log(view);
+          view.render();
+        });
+
+          $(".formNewTldr"+self.eventPost.id).hide();
+
 
 
 
@@ -167,7 +184,7 @@ EventPostView.prototype = {
     html.append("<button class='createNewTldr"+ eventPost.id +" createNewTldr btn btn-info'>Add a New tldr</button>");
     html.append("<button class='editEventPost btn btn-primary'>Edit Event</button>");
     html.append("<button class='deleteEventPost btn btn-danger'>Delete Event</button>");
-    html.append("<div class='well formNewTldr"+eventPost.id+" formNewTldr' style='display: none;'><form role='form'><div class='form-group'> Summary : <input name='summary' value='' class='form-control'> Relevance : <input name='relevance' value='' class='form-control'><button class='createnewTldrButton createnewTldrButton"+eventPost.id+" btn btn-success'>New tldr</button><button class='cancelCreateTldr"+eventPost.id+" cancelCreateTldr btn btn-danger'>Cancel</button></div></form></div>");
+    html.append("<div class='well formNewTldr"+eventPost.id+" formNewTldr' style='display: none;'><form role='form'><div class='form-group'> Summary : <input name='summary' value='' class='form-control summaryInputTldr"+eventPost.id+"'> Relevance : <input name='relevance' value='' class='form-control relevanceInputTldr"+eventPost.id+"'><button class='createnewTldrButton createnewTldrButton"+eventPost.id+" btn btn-success'>New tldr</button><button class='cancelCreateTldr"+eventPost.id+" cancelCreateTldr btn btn-danger'>Cancel</button></div></form></div>");
     html.append("<div class='tldrs'></div>");
     return(html);
   },

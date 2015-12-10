@@ -34,13 +34,26 @@ router.get("/:id/tldrs", function(req, res){
   });
 });
 
+
+//// Putting a new tldr in a eventPost
+
 router.post("/:id/tldrs", function(req, res){
-  // console.log(req.body);
-  new EventPost(req.body).save().then(function(eventPost){
-    res.json(eventPost);
-    // console.log(eventPost);
-  });
+  var tldr = new Tldr(req.body);
+  tldr.save(function(d){
+    console.log(d)
+    EventPost.findByIdAndUpdate(req.params.id, {
+      $push: {
+        "tldrs": tldr
+      }
+    }).then(function(err,doc){
+      res.json(tldr)
+    })
+  })
 });
+
+
+///////////////
+
 
 
 router.patch("/:id", function(req, res){

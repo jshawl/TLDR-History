@@ -5,9 +5,8 @@ var Tldr = function (info) {
   this.id = info._id;
 };
 
-Tldr.create = function(){
+Tldr.create = function(info, eventPostID){
   var self = this;
-  var eventPostID = "your mom";
   var url = "/eventposts/"+eventPostID+"/tldrs";
   var request = $.ajax({
     url: url,
@@ -15,6 +14,9 @@ Tldr.create = function(){
     data: JSON.stringify(info),
     contentType: 'application/json'
   });
+  console.log("VVV request");
+  console.log(request);
+  console.log("^^^^ Request");
   return request;
 };
 
