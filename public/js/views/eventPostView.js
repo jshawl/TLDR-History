@@ -98,8 +98,19 @@ EventPostView.prototype = {
   },
   appendTldrs: function(tldrs, tldrsDiv){
     tldrs.forEach(function(tldr){
+      var self = this;
       var tldrView = new TldrView(tldr);
       tldrsDiv.append(tldrView.render());
+      var deleteButton = $(".deleteTldr"+ tldr.id);
+      var tldrDiv = $(".tldrDiv" + tldr.id )
+      deleteButton.on("click", function() {
+        console.log("delete clicked");
+        // console.log(tldr);
+        // console.log(tldrDiv);
+        tldr.destroy().then(function() {
+          tldrDiv.fadeOut();
+        });
+      });
     });
   },
   updateEventPost: function() {

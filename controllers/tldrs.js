@@ -28,14 +28,13 @@ router.put("/:id", function(req, res){
 
 router.delete("/:id", function(req, res){
   Tldr.findById(req.params.id).then(function(tldr){
-    EventPost.findByIdAndUpdate(tldr.eventPost._id, {
-      $pull: { tldrs: {_id: req.params.id} }
-    }).then(function(){
+
+      console.log("hi delete function");
       return tldr.remove();
-    }).then(function(){
+    })
+    .then(function(){
       res.json({success: true});
     });
   });
-});
 
 module.exports = router;

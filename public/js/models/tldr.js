@@ -1,6 +1,18 @@
 var Tldr = function (info) {
   this.summary = info.summary;
   this.relevance = info.relevance;
-  this.evenPostId = info.eventPostId;
+  this.evenPostId = info._eventPostId;
   this.id = info._id;
 };
+
+Tldr.prototype = {
+  destroy: function(){
+    var self = this;
+    var url = "/tldrs/" + self.id;
+    var request = $.ajax({
+      url: url,
+      method: "delete",
+      });
+    return request;
+  }
+}
