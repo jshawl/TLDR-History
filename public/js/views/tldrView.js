@@ -11,7 +11,7 @@ TldrView.prototype = {
     var url = encodeURIComponent('tldr%2Dhistory.herokuapp.com');
 
     console.log(this);
-    var $el = $("<div class='tldrDiv well'><p class='tldrSummary'>" + self.tldr.summary + "</p><p class='tldrRelevance'>" + self.tldr.relevance +   "</p>" + '<a href="http://www.twitter.com/share?url=tldr-history.herokuapp.com&text=' + encodedUrl + " https://goo.gl/l3sZyi %23tldrhistory"+'"class="btn btn-info twitter"">' + 'Tweet this! '+ '<span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>' + '</a>' + "</div>");
+    var $el = $("<div class='tldrDiv well'><p class='tldrSummary'>" + self.tldr.summary + "</p><p class='tldrRelevance'>" + self.tldr.relevance +   "</p>" + '<a href="http://www.twitter.com/share?url=tldr-history.herokuapp.com&text=' + encodedUrl + 'https://goo.gl/l3sZyi %40tldrhistory" class="btn btn-info twitter">Tweet this!<span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a></div>');
     return($el);
   }
 };
