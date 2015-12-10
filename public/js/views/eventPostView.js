@@ -85,8 +85,11 @@ EventPostView.prototype = {
       createnewTldrButton.on("click", function(){
         event.preventDefault();
         $(".formNewTldr"+self.eventPost.id).hide();
-        
         console.log("Create New Button Clicked! EventPost ID: "+self.eventPost.id);
+
+        // creaet a new tldr, attatching it to the eventPost
+
+
 
         createnewTldrButton.off();
       });
