@@ -15,7 +15,7 @@ EventPostView.new = function(){
   var cancelButton = $(".cancelCreateEventPost");
   createButton.on("click", function(){
     event.preventDefault();
-    // console.log("Create Button Clicked");
+    console.log("Create Button Clicked");
     var data = {  title: $('.formNewEventPost input[name=title]').val(),
                     date: $('.formNewEventPost input[name=date]').val(),
                     photoUrl: $('.formNewEventPost input[name=photoUrl]').val(),
@@ -25,9 +25,15 @@ EventPostView.new = function(){
     $(".formNewEventPost").hide();
     $(".createEventPost").show();
     EventPost.create(data).then( function(response){
-      var view = new EventPostView(response);
+      var eventPost = new EventPost(response);
+      console.log("creating a new object");
+      var view = new EventPostView(eventPost);
     });
+
+    $(".createEventPostButton").off();
+
   });
+
   cancelButton.on("click", function(){
     event.preventDefault();
     $(".formNewEventPost").hide();
@@ -92,8 +98,19 @@ EventPostView.prototype = {
   },
   appendTldrs: function(tldrs, tldrsDiv){
     tldrs.forEach(function(tldr){
+      var self = this;
       var tldrView = new TldrView(tldr);
       tldrsDiv.append(tldrView.render());
+      var deleteButton = $(".deleteTldr"+ tldr.id);
+      var tldrDiv = $(".tldrDiv" + tldr.id )
+      deleteButton.on("click", function() {
+        console.log("delete clicked");
+        // console.log(tldr);
+        // console.log(tldrDiv);
+        tldr.destroy().then(function() {
+          tldrDiv.fadeOut();
+        });
+      });
     });
   },
   updateEventPost: function() {
@@ -105,7 +122,8 @@ EventPostView.prototype = {
                   photoUrl: $('.editForm'+id+' input[name=photoUrl]').val(),
                   wikiPage: $('.editForm'+id+' input[name=wikiPage]').val()
                 };
-    self.eventPost.update(data).then(function() { self.render(); });
+    console.log(this);
+    self.eventPost.update(data).then(function() { self.render();});
   },
   eventPostTemplate: function(eventPost){
     var html = $("<div>");
