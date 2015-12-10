@@ -89,3 +89,12 @@ h2 {
            -4px 4px black,
            -5px 5px black;
 }
+
+/* twitter share button styling */
+
+.btn-info {
+  background-color: #0084b4;
+  border: 1px solid transparent;
+  color: #fff;
+  text-align: center;
+}
