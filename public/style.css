@@ -15,7 +15,6 @@ a, h3, h4, h5, h6, li {
 
 p {
   font-family: 'Slabo 27px', serif;
-  text-shadow: .5px .5px gray;
 }
 .container {
   max-width: 50%;
@@ -23,6 +22,10 @@ p {
 .jumbotron {
   opacity: 0.9;
   background-color: brown;
+  border: 1.5px solid #000;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+   -moz-box-shadow: 0 8px 6px -6px black;
+        box-shadow: 0 8px 6px -6px black;
 }
 
 button {
@@ -32,8 +35,9 @@ button {
 }
 
 
-.btn-primary {
-  background-color: #804b00;
+button.createEventPost {
+  background-color: maroon;
+  color: white;
 }
 
 .well {
@@ -48,9 +52,16 @@ button {
 }
 
 .eventPost-photo:hover {
-  transition: 0.1s;
-  width: 450px;
-  height: 350px;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
+}
+
+.eventPost.well {
+  border: 2px solid maroon;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
 }
 
 img {
@@ -74,11 +85,16 @@ h2 {
   letter-spacing: 5px;
 }
 
+h3 {
+  font-weight: 600;
+}
+
 #tldr {
   font-family: 'Cinzel', serif;
 }
 
 .tldrDiv.well {
+  text-align: justify;
   background-color: #ffd699;
   margin-top: 10px;
   padding: 10px;
@@ -90,6 +106,7 @@ h2 {
            -5px 5px black;
 }
 
+
 /* twitter share button styling */
 
 .btn-info {
@@ -97,4 +114,37 @@ h2 {
   border: 1px solid transparent;
   color: #fff;
   text-align: center;
+}
+
+.btn-primary {
+  background-color: #804b00;
+}
+#logoClick {
+  cursor: pointer;
+}
+
+#logoClick:hover {
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 75%;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .showTldrs, .editEventPost, .deleteEventPost {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  p {
+    padding: 20px;
+  }
 }
