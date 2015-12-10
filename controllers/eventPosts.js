@@ -40,15 +40,14 @@ router.get("/:id/tldrs", function(req, res){
 router.post("/:id/tldrs", function(req, res){
   var tldr = new Tldr(req.body);
   tldr.save(function(d){
-    console.log(d)
     EventPost.findByIdAndUpdate(req.params.id, {
       $push: {
         "tldrs": tldr
       }
     }).then(function(err,doc){
-      res.json(tldr)
-    })
-  })
+      res.json(tldr);
+    });
+  });
 });
 
 

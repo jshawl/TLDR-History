@@ -71,6 +71,7 @@ EventPostView.prototype = {
     });
 
     createTldrButton.on("click", function(){
+
       $(".formNewTldr"+self.eventPost.id).show();
       var cancelCreateTldr = self.$el.find(".cancelCreateTldr"+self.eventPost.id);
       var createnewTldrButton = self.$el.find(".createnewTldrButton"+self.eventPost.id);
@@ -78,6 +79,9 @@ EventPostView.prototype = {
 
       cancelCreateTldr.on("click", function(){
         event.preventDefault();
+        $(".summaryInputTldr"+self.eventPost.id).val("");
+        $(".relevanceInputTldr"+self.eventPost.id).val("");
+
         $(".formNewTldr"+self.eventPost.id).hide();
       });
 
@@ -95,20 +99,22 @@ EventPostView.prototype = {
 
 
         Tldr.create(data, eventPostID).then(function(response){
+
+
           console.log(data);
           var tldr = new Tldr(response);
           console.log("creating a new Tldr");
           var view = new TldrView(tldr);
           console.log(view);
-          view.render();
+          $(".tldrsEventPost"+eventPostID).prepend(view.render());
         });
 
           $(".formNewTldr"+self.eventPost.id).hide();
 
-
-
-
+        createTldrButton.off();
+        cancelCreateTldr.off();
         createnewTldrButton.off();
+
       });
 
 
@@ -185,7 +191,7 @@ EventPostView.prototype = {
     html.append("<button class='editEventPost btn btn-primary'>Edit Event</button>");
     html.append("<button class='deleteEventPost btn btn-danger'>Delete Event</button>");
     html.append("<div class='well formNewTldr"+eventPost.id+" formNewTldr' style='display: none;'><form role='form'><div class='form-group'> Summary : <input name='summary' value='' class='form-control summaryInputTldr"+eventPost.id+"'> Relevance : <input name='relevance' value='' class='form-control relevanceInputTldr"+eventPost.id+"'><button class='createnewTldrButton createnewTldrButton"+eventPost.id+" btn btn-success'>New tldr</button><button class='cancelCreateTldr"+eventPost.id+" cancelCreateTldr btn btn-danger'>Cancel</button></div></form></div>");
-    html.append("<div class='tldrs'></div>");
+    html.append("<div class='tldrs tldrsEventPost"+eventPost.id+"'></div>");
     return(html);
   },
   eventPostEditTemplate: function(eventPost) {
