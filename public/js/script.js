@@ -7,7 +7,7 @@ $(document).ready(function(){
   });
 
   $(".createEventPost").on("click", function(){
-    EventPostView.new();
-    // $(".createEventPostButton").off();
-  });
+      EventPostView.new();
+    });
+
 });

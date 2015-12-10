@@ -95,34 +95,32 @@ EventPostView.prototype = {
                         relevance: $(".relevanceInputTldr"+self.eventPost.id).val()
                       };
         var eventPostID = self.eventPost.id;
-
-
-
         Tldr.create(data, eventPostID).then(function(response){
-
-
           console.log(data);
           var tldr = new Tldr(response);
           console.log("creating a new Tldr");
           var view = new TldrView(tldr);
           console.log(view);
           $(".tldrsEventPost"+eventPostID).prepend(view.render());
+          var deleteButton = $(".deleteTldr"+ tldr.id);
+          var tldrDiv = $(".tldrDiv" + tldr.id );
+          deleteButton.on("click", function() {
+            console.log("delete clicked");
+            tldr.destroy().then(function() {
+              tldrDiv.fadeOut();
+            });
+          });
+
+
         });
-
-          $(".formNewTldr"+self.eventPost.id).hide();
-
-        createTldrButton.off();
+        $(".formNewTldr"+self.eventPost.id).hide();
         cancelCreateTldr.off();
         createnewTldrButton.off();
 
+
+
       });
-
-
     });
-
-
-
-
   },
   renderEditForm: function() {
     var self = this;
