@@ -34,6 +34,27 @@ router.get("/:id/tldrs", function(req, res){
   });
 });
 
+
+//// Putting a new tldr in a eventPost
+
+router.post("/:id/tldrs", function(req, res){
+  var tldr = new Tldr(req.body);
+  tldr.save(function(d){
+    EventPost.findByIdAndUpdate(req.params.id, {
+      $push: {
+        "tldrs": tldr
+      }
+    }).then(function(err,doc){
+      res.json(tldr);
+    });
+  });
+});
+
+
+///////////////
+
+
+
 router.patch("/:id", function(req, res){
   EventPost.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true}).then(function(eventPost){
     res.json(eventPost);
