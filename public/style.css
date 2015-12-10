@@ -9,11 +9,14 @@ body {
   padding-top: 80px;
 }
 
-a, h3, h4, h5, h6, p, li {
+a, h3, h4, h5, h6, li {
   font-family: 'Cinzel', serif;
 }
 
-
+p {
+  font-family: 'Slabo 27px', serif;
+  text-shadow: .5px .5px gray;
+}
 .container {
   max-width: 50%;
 }
@@ -50,6 +53,9 @@ button {
   height: 350px;
 }
 
+img {
+  max-width: 100%;
+}
 .nav {
   color: white;
   opacity: 0.95;
@@ -73,5 +79,13 @@ h2 {
 }
 
 .tldrDiv.well {
+  background-color: #ffd699;
   margin-top: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  box-shadow:  -1px 1px black,
+           -2px 2px black,
+           -3px 3px black,
+           -4px 4px black,
+           -5px 5px black;
 }

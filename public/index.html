@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>TLDR History</title>
+  <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Pinyon+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -18,21 +19,21 @@
   <div class="nav navbar-inverse navbar-fixed-top">
     <h2><span id='tldr'>TLDR</span> History</h2>
   </div>
-  <div class="container">
-    <div class="jumbotron">
-      <button class="createEventPost btn-lg btn-primary">Create New Event</button>
-      <div class="well formNewEventPost">
-        <form role='form'>
-          <div class='form-group'>
-            Event Title : <input name='title' value='' class="form-control">
-            Date: <input name='date' value='' class="form-control"></p>
-            Photo Url: <input name='photoUrl' value='' class="form-control"></p>
-            Wiki Page: <input name='wikiPage' value='' class="form-control"></p>
-            <button class='createEventPostButton btn btn-success'>New Event</button>
-            <button class='cancelCreateEventPost btn btn-danger'>Cancel</button>
-          </div>
-        </form>
-      </div>
+    <div class="container">
+      <div class="jumbotron">
+        <button class="createEventPost btn-lg btn-primary">Create New Event</button>
+        <div class="well formNewEventPost">
+          <form role='form'>
+            <div class='form-group'>
+              Event Title : <input name='title' value='' class="form-control">
+              Date: <input name='date' value='' class="form-control"></p>
+              Photo Url: <input name='photoUrl' value='' class="form-control"></p>
+              Wiki Page: <input name='wikiPage' value='' class="form-control"></p>
+              <button class='createEventPostButton btn btn-success'>New Event</button>
+              <button class='cancelCreateEventPost btn btn-danger'>Cancel</button>
+            </div>
+          </form>
+        </div>
       <div class="eventPosts"></div>
     </div>
   </div>
