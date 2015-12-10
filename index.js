@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-app.use("/eventPosts", require("./controllers/eventPosts"));
+app.use("/eventposts", require("./controllers/eventPosts"));
 app.use("/tldrs", require("./controllers/tldrs"));
 
 // allows for put/delete request in html form
