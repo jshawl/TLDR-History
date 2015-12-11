@@ -23,6 +23,7 @@ app.set('view engine', 'hbs');
 app.set("views","./views");
 
 app.use(express.static(path.join(__dirname, "/public")));
+app.use(bodyParser());
 app.use(bodyParser.json()); //do we need bodyparser() separately from these two?
 app.use(bodyParser.urlencoded({extended: true}));
 // morgan allows us see the http requests logged to our console
@@ -62,6 +63,7 @@ var port = process.env.PORT || 3000;
 app.listen(port, function() {
 console.log("Listening on " + port);
 });
+
 
 function authenticatedUser(req, res, next) {
   // If the user is authenticated, then we continue the execution
