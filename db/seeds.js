@@ -15,9 +15,13 @@ UserModel.remove({}, function(err){
 })
 
 var user1 = new UserModel({
-    local.email: rachel@email.com,
-    local.password: password
+  local : {
+    email: "rachel@email.com",
+    password: "password"
   }
+});
+
+  user1.save();
 
 var event1 = new EventPostModel({
     title: "Fourth of July",
