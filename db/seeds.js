@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var conn = mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/tldr-history');
+
 var EventPostModel = require("../models/eventPost");
 var TldrModel = require("../models/tldr");
 var UserModel = require("../models/user");
