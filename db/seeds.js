@@ -50,6 +50,17 @@ var event4 = new EventPostModel({
 
 event4.save();
 
+
+var event5 = new EventPostModel({
+  title: "Dimitri's Birthday",
+  date: "December 11",
+  photoUrl: "https://lh6.googleusercontent.com/-lLkI3hkdD4w/AAAAAAAAAAI/AAAAAAAAQIk/j8xqmYg1EHk/photo.jpg",
+  wikiPage: "https://en.wikipedia.org/wiki/Awesome"
+
+})
+
+event5.save();
+
 var tldr1 = new TldrModel({
   "summary": "America's birthday. The Continental Congress got together and sent the King George III the signed Decloration of Independence.",
   "relevance": "America's birthday/excuse for bbq parties and fireworks"
@@ -79,5 +90,46 @@ var tldr4 = new TldrModel({
 
 tldr4.save();
 
+var tldr5 = new TldrModel({
+  summary: "Before -- there was sadness. Great sadness. And not a lot of jokes about Putin. Then -- on December 11th -- Dimitri was born, and all of this got rectified. Later he joined the most awesome team at GA and to create an awesome Express App. Happy Birthday Dimitri!",
+  relevance: "Birthday of awesome human being."
+})
+
+tldr5.save();
+
+var tldr6 = new TldrModel({
+  summary: "The birthday of all around great human being Dimitri!",
+  relevance: "Happy Birthday Dimitri!"
+})
+
+tldr6.save();
+
+var tldr7 = new TldrModel({
+  summary: "Political Protest by the Sons of Liberty in Boston. The British Empire was unfairly taxing the price of tea, so the Sons revolted by dumping a shipment of tea into the Boston Harbor. Very Boston.",
+  relevance: "Revolutionary Political Protest over tea tax, excuse for Americans to choose coffee over tea"
+})
+
+tldr7.save();
+
+var tldr8 = new TldrModel({
+  summary: "No taxation without representation - the rallying cry of the Sons of Liberty got behind when they dumped shipments of taxed tea into the Boston Harbor. At this time America was still under the British Empire's controll and did not have representation in the British parliment. This event escalated into the American Revolution.",
+  relevance: "Revoltionary revolt against unjust taxes, Republicans still fawn"
+})
+
+tldr8.save();
+
+var tldr9 = new TldrModel({
+  summary: "During the American Revolution, American patriot Paul Revere was working with American intelligence. He recieved a message via a lantern that the British were coming by sea, so Paul got on his pony and warned several towns that the British were coming. ",
+  relevance: "The poem your niece memorized and wants to recite this Christmas."
+})
+
+tldr9.save();
+
+
 event1.tldrs.push(tldr1, tldr2, tldr3);
+
+event2.tldrs.push(tldr7, tldr8);
+event3.tldrs.push(tldr9);
+
 event4.tldrs.push(tldr4);
+event5.tldrs.push(tldr5, tldr6);
