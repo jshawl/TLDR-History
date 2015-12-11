@@ -1,6 +1,5 @@
 var passport = require("passport")
 var express = require("express");
-var router = express.Router();
 var User = require("../models/user");
 
 
@@ -33,14 +32,12 @@ var usersController = {
   },
   twitter: function(req, res){
     passport.authenticate('twitter');
-
   },
   twitterCallback: function(req, res){
     passport.authenticate('twitter', {
       successRedirect: '/',
       failureRedirect: '/login'
     });
-
   }
 }
 
