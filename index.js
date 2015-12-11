@@ -17,7 +17,7 @@ var methodOverride = require('method-override');
 var eventPostsController = require("./controllers/eventPosts");
 var usersController = require("./controllers/users");
 // connect mongoose interfaces to eventPosts mongo db
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/tldr-history');
+
 
 app.set('view engine', 'hbs');
 app.set("views","./views");

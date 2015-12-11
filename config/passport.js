@@ -60,6 +60,7 @@ module.exports = function(passport) {
         // Create a new user
         var newUser            = new User();
         newUser.local.email    = email;
+        console.log(newUser);
         newUser.local.password = newUser.encrypt(password);
 
         newUser.save(function(err) {

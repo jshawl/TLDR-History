@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var conn = mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/tldr-history');
 var EventPostModel = require("../models/eventPost");
 var TldrModel = require("../models/tldr");
+var UserModel = require("../models/user");
 
 EventPostModel.remove({}, function(err){
   console.log(err);
@@ -9,6 +10,18 @@ EventPostModel.remove({}, function(err){
 TldrModel.remove({}, function(err){
   console.log(err);
 });
+UserModel.remove({}, function(err){
+  console.log(err);
+})
+
+var user1 = new UserModel({
+  local : {
+    email: "rachel@email.com",
+    password: "password"
+  }
+});
+
+  user1.save();
 
 var event1 = new EventPostModel({
   title: "Fourth of July",
