@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  userMenu();
   $(".formNewEventPost").hide();
   EventPost.fetch().then(function(eventposts){
     EventPost.all.forEach(function(eventpost){
@@ -11,3 +12,16 @@ $(document).ready(function(){
     // $(".createEventPostButton").off();
   });
 });
+
+
+function userMenu() {
+  var navbar = $("#user-menu");
+  navbar.append("<ul>")
+    // if (currentUser){
+      navbar.append("<li><a href='users/logout'>Logout</a></li<a>");
+    // } else {
+      navbar.append("<li><a href='users/login'>Login</a></li>");
+      navbar.append("<li><a href='users/signup'>Signup</a></li>");
+    // }
+  navbar.append("</li>");
+}
