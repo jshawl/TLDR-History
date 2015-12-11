@@ -15,7 +15,6 @@ EventPostView.new = function(){
   var cancelButton = $(".cancelCreateEventPost");
   createButton.on("click", function(){
     event.preventDefault();
-    console.log("Create Button Clicked");
     var data = {  title: $('.formNewEventPost input[name=title]').val(),
                     date: $('.formNewEventPost input[name=date]').val(),
                     photoUrl: $('.formNewEventPost input[name=photoUrl]').val(),
@@ -26,7 +25,6 @@ EventPostView.new = function(){
     $(".createEventPost").show();
     EventPost.create(data).then( function(response){
       var eventPost = new EventPost(response);
-      console.log("creating a new object");
       var view = new EventPostView(eventPost);
     });
 
@@ -89,24 +87,18 @@ EventPostView.prototype = {
 
       createnewTldrButton.on("click", function(){
         event.preventDefault();
-        console.log("Create New Button Clicked! EventPost ID: "+self.eventPost.id);
-
         // creaet a new tldr, attatching it to the eventPost
         var data = {  summary: $(".summaryInputTldr"+self.eventPost.id).val(),
                         relevance: $(".relevanceInputTldr"+self.eventPost.id).val()
                       };
         var eventPostID = self.eventPost.id;
         Tldr.create(data, eventPostID).then(function(response){
-          console.log(data);
           var tldr = new Tldr(response);
-          console.log("creating a new Tldr");
           var view = new TldrView(tldr);
-          console.log(view);
           $(".tldrsEventPost"+eventPostID).prepend(view.render());
           var deleteButton = $(".deleteTldr"+ tldr.id);
           var tldrDiv = $(".tldrDiv" + tldr.id );
           deleteButton.on("click", function() {
-            console.log("delete clicked");
             tldr.destroy().then(function() {
               tldrDiv.fadeOut();
             });
@@ -158,9 +150,6 @@ EventPostView.prototype = {
       var deleteButton = $(".deleteTldr"+ tldr.id);
       var tldrDiv = $(".tldrDiv" + tldr.id );
       deleteButton.on("click", function() {
-        console.log("delete clicked");
-        // console.log(tldr);
-        // console.log(tldrDiv);
         tldr.destroy().then(function() {
           tldrDiv.fadeOut();
         });
@@ -176,7 +165,6 @@ EventPostView.prototype = {
                   photoUrl: $('.editForm'+id+' input[name=photoUrl]').val(),
                   wikiPage: $('.editForm'+id+' input[name=wikiPage]').val()
                 };
-    console.log(this);
     self.eventPost.update(data).then(function() { self.render();});
   },
   eventPostTemplate: function(eventPost){
