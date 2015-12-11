@@ -1,7 +1,6 @@
 var mongoose = require("mongoose");
 var bcrypt   = require('bcrypt-nodejs');
-//mongoose oojs2 has mongoose connect here
-// var conn = mongoose.connect('mongodb://localhost/tldr-history')
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/tldr-history');
 
 var Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
@@ -36,9 +35,6 @@ var UserSchema = new Schema({
   }
 });
 
-var EventPostModel = mongoose.model("EventPost", EventPostSchema);
-var TldrModel = mongoose.model("Tldr", TldrSchema);
-var UserModel = mongoose.model("User", UserSchema);
 
 UserSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.local.password);
@@ -47,3 +43,7 @@ UserSchema.methods.validPassword = function(password) {
 UserSchema.methods.encrypt = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
+
+var EventPostModel = mongoose.model("EventPost", EventPostSchema);
+var TldrModel = mongoose.model("Tldr", TldrSchema);
+var UserModel = mongoose.model("User", UserSchema);
