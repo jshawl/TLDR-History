@@ -73,7 +73,7 @@ tldr3.save();
 
 
 var tldr4 = new TldrModel({
-  summary: "Japan was trying to get resources from Southeast Asia and the US said hell no, if you go attack Southeast Asia well attack you! So they thought they could catch us with our pants down and decimate our fleet at Pearl Harbor and Then go get the resources they needed in Indonesia and other places.",
+  summary: "Japan was trying to get resources from Southeast Asia and the US said hell no, if you go attack Southeast Asia we'll attack you! So they thought they could catch us with our pants down and decimate our fleet at Pearl Harbor and Then go get the resources they needed in Indonesia and other places.",
   relevance: "This event provoked the US to enter World War II AND long story short we dropped atom bombs on Japan"
 })
 
