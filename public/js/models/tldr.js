@@ -5,6 +5,22 @@ var Tldr = function (info) {
   this.id = info._id;
 };
 
+Tldr.create = function(info, eventPostID){
+  var self = this;
+  var url = "/eventposts/"+eventPostID+"/tldrs";
+  var request = $.ajax({
+    url: url,
+    method: "post",
+    data: JSON.stringify(info),
+    contentType: 'application/json'
+  });
+  console.log("VVV request");
+  console.log(request);
+  console.log("^^^^ Request");
+  return request;
+};
+
+
 Tldr.prototype = {
   destroy: function(){
     var self = this;
