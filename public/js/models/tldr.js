@@ -25,7 +25,7 @@ Tldr.prototype = {
     var request = $.ajax({
       url: url,
       method: "delete",
-      });
+    });
     return request;
   }
 }
