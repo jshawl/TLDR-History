@@ -14,9 +14,6 @@ Tldr.create = function(info, eventPostID){
     data: JSON.stringify(info),
     contentType: 'application/json'
   });
-  console.log("VVV request");
-  console.log(request);
-  console.log("^^^^ Request");
   return request;
 };
 
@@ -28,7 +25,7 @@ Tldr.prototype = {
     var request = $.ajax({
       url: url,
       method: "delete",
-      });
+    });
     return request;
   }
 }
