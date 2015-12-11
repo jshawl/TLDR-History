@@ -16,7 +16,7 @@ var TldrSchema = new Schema(
 var EventPostSchema = new Schema(
   {
     title: String,
-    date: Date,
+    date: String,
     photoUrl: String,
     wikiPage: String,
     tldrs: [{type: ObjectId, ref: "Tldr"}]

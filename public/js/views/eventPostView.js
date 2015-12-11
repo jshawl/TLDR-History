@@ -38,6 +38,7 @@ EventPostView.new = function(){
     event.preventDefault();
     $(".formNewEventPost").hide();
     $(".createEventPost").show();
+    cancelButton.off();
   });
 };
 
