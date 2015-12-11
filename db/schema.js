@@ -11,7 +11,6 @@ var TldrSchema = new Schema(
     summary: String, // need to add 300 character limit
     relevance: String, // need to add 140 character limit
     eventPost: {type: ObjectId, ref: "EventPost"}
-    // upvoting enabled later
   }
 );
 var EventPostSchema = new Schema(
