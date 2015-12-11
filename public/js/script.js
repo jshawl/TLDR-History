@@ -28,5 +28,5 @@ function userMenu() {
       navbar.append("<li><a href='/login'>Login</a></li>");
       navbar.append("<li><a href='/signup'>Signup</a></li>");
     // }
-  navbar.append("</li>");
+  navbar.append("</ul>");
 }
