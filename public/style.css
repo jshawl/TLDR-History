@@ -84,6 +84,13 @@ img {
   padding: 5px;
 }
 
+.createEventPostButton, .cancelCreateEventPost {
+  margin-top: 5px;
+}
+
+.twitter-follow {
+  margin-left: 5px;
+}
 h2 {
   font-family: 'Pinyon Script', cursive;
   letter-spacing: 5px;
@@ -125,6 +132,7 @@ h3 {
 }
 #logoClick {
   cursor: pointer;
+  margin-right: 175px;
 }
 
 #logoClick:hover {
@@ -140,6 +148,10 @@ h3 {
 @media (max-width: 400px) {
   .container {
     max-width: 100%;
+  }
+
+  #logoClick {
+    margin: 0;
   }
 
   .showTldrs, .editEventPost, .deleteEventPost, .createNewTldr {
