@@ -4,15 +4,15 @@ WDI - Project 3
 This single-page app compiles "TL;DR" (too long; didn't read) summaries of historical events - the funnier the better! Users can view events and their summaries added by others, and add their own. A user can also tweet out their favorite summaries and the tweet will mention the twitter handle of the app creators ("@TLDRhistory").
 
 # Group Members
-Rachel Porter
-Tory Burgett
-Dumitru "Dimitri" Gorgan
+* Tory Burgett
+* Dumitru "Dimitri" Gorgan
+* Rachel Porter
 
 ## Technologies Used
 Express, MongoDB/Mongoose, JavaScript/jQuery/AJAX, Bootstrap
 
 ## Approach
-We found we had common interests in the show "Drunk History," and decided to try to combine the history in your own words concept with microblogging, and created TLDR History.
+We found we had common interests in the show "Drunk History," and decided to try to combine the "history in your own words" concept with microblogging, and created TLDR History.
 
 ### User Stories
 A user should be able to...
@@ -34,7 +34,7 @@ then run ```nodemon``` to test on localhost:3000.
 
 ## Future Features
 * Upvoting - We were not able to implement upvoting during the project week so that would be a high priority implementation
-* User Authentication - We would like to incorporate user login with Twitter and/or other 3rd party Oauth and then restrict who can edit/delete Events and TLDRs.
+* User Authentication - We are able to log in using a local strategy or twitter, but don't yet have any restricted functions available only to users - we'd like to reserve create/update/delete functions for logged in users only.
 
 ## Unsolved Problems
 * Jasmine tests - We used the concept of tests to help drive the early development of the app but didn't actually create any functional tests
