@@ -140,9 +140,7 @@ h3 {
   /*margin-right: 175px;*/
 }
 
-navbar {
-margin: 0;
-}
+
 #user-menu a {
   color: white;
   padding: 10px;
@@ -164,6 +162,7 @@ margin: 0;
     max-width: 100%;
   }
 
+
   #logoClick {
     margin: 0;
   }
@@ -176,5 +175,9 @@ margin: 0;
 
   p {
     padding: 20px;
+  }
+
+   .container {
+    padding-top: 125px;
   }
 }
