@@ -7,7 +7,7 @@ var usersController = {
   getSignup: function(req, res){
     res.render("signup.hbs", { message: req.flash('signupMessage') });
   },
-  postSignup(req, res){
+  postSignup: function(req, res){
     var signupStrategy = passport.authenticate('local-signup', {
       successRedirect : '/',
       failureRedirect : '/signup',

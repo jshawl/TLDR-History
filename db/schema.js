@@ -46,3 +46,5 @@ UserSchema.methods.encrypt = function(password) {
 var EventPostModel = mongoose.model("EventPost", EventPostSchema);
 var TldrModel = mongoose.model("Tldr", TldrSchema);
 var UserModel = mongoose.model("User", UserSchema);
+
+// module.exports?

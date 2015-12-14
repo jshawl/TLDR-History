@@ -20,6 +20,7 @@ $(document).ready(function(){
 
 function userMenu() {
   var navbar = $("#user-menu");
+  // recommend just hardcoding this menu in the HTML.
   navbar.append("<ul>")
     // if (currentUser){
       navbar.append("<li><a href='/logout' class='btn btn-danger'>Logout</a></li<a>");

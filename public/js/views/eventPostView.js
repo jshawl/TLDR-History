@@ -10,6 +10,7 @@ var EventPostView = function(eventpost){
 EventPostView.new = function(){
   // upon clicking create new Event post button, the button dissapears
   $(".formNewEventPost").show();
+  // recommend creating a variable for this selector - it's used a couple of times here
   $(".createEventPost").hide();
   var createButton = $(".createEventPostButton");
   var cancelButton = $(".cancelCreateEventPost");
@@ -39,6 +40,7 @@ cancelButton.on("click", function(){
   cancelButton.off();
 });
 };
+// indent code correctly
 
 EventPostView.prototype = {
   render: function(){
@@ -77,6 +79,7 @@ EventPostView.prototype = {
 
 
       cancelCreateTldr.on("click", function(){
+      // avoid nested event handlers - a bit hard to follow!
         event.preventDefault();
         $(".summaryInputTldr"+self.eventPost.id).val("");
         $(".relevanceInputTldr"+self.eventPost.id).val("");
@@ -110,7 +113,7 @@ EventPostView.prototype = {
       cancelCreateTldr.off();
       createnewTldrButton.off();
 
-
+// remove empty white space
 
     });
   });
@@ -179,6 +182,8 @@ eventPostTemplate: function(eventPost){
   html.append("<button class='deleteEventPost btn btn-danger'>Delete Event</button>");
   html.append("<div class='well formNewTldr"+eventPost.id+" formNewTldr' style='display: none;'><form role='form'><div class='form-group'> Summary : <input name='summary' value='' class='form-control summaryInputTldr"+eventPost.id+"'> Relevance : <input name='relevance' value='' class='form-control relevanceInputTldr"+eventPost.id+"'><button class='createnewTldrButton createnewTldrButton"+eventPost.id+" btn btn-success'>New tldr</button><button class='cancelCreateTldr"+eventPost.id+" cancelCreateTldr btn btn-danger'>Cancel</button></div></form></div>");
   html.append("<div class='tldrs tldrsEventPost"+eventPost.id+"'></div>");
+  // you might want to try using a templating lib like handlebars on the front end
+  // to make your views a little easier to manage.
   return(html);
 },
 eventPostEditTemplate: function(eventPost) {
@@ -192,3 +197,5 @@ eventPostEditTemplate: function(eventPost) {
   return(html);
 },
 };
+
+// otherwise great job again on the FE OOJS!!

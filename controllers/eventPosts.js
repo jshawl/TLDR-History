@@ -4,6 +4,7 @@ var EventPost = require("../models/eventPost");
 var Tldr = require("../models/tldr");
 
 function error(response, message){
+  // is this function being called anywhere?
   response.status(500);
   response.json({error: message});
 }

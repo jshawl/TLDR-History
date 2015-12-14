@@ -139,6 +139,9 @@ var tldr9 = new TldrModel({
 tldr9.save();
 
 
+// since the .save()s are asynchronous, do
+// you have any race-condition issues here?
+// i.e. maybe nest inside callback or promise.
 event1.tldrs.push(tldr1, tldr2, tldr3);
 
 event2.tldrs.push(tldr7, tldr8);

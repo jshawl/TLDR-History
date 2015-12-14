@@ -36,6 +36,9 @@ EventPost.fetch = function() {
 
 EventPost.prototype = {
   fetchTldrs: function() {
+  // could also move this to a separate object
+  // like:
+  // Tldr.fetch(eventpostId)...
     var url = "/eventposts/" + this.id + "/tldrs";
     var request = $.getJSON(url)
     .then(function(response) {
@@ -79,3 +82,5 @@ EventPost.prototype = {
       }
     }
   };
+
+  // AWESOME OOJS solution!!!
